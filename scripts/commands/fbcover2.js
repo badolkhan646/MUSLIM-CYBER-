@@ -20,7 +20,7 @@ module.exports.config = {
   var nam = await Users.getNameUser(id);
   var ThreadInfo = await api.getThreadInfo(event.threadID);
     if (!info) {
-      return api.sendMessage(`Please enter in the format:\n${global.config.PREFIX}fbcoverv4 name - title - address - email - phone nbr - color (default = no )`, event.threadID);
+      return api.sendMessage(`⚠️🤙অনুগ্রহ করে এইভাবে ট্রাই করুন🤙👇\n\n${global.config.PREFIX}fbcoverv4 name - title - address - email - phone nbr - color (default = no )`, event.threadID);
     } else {
       const msg = info.split("-");
       const name = msg[0].trim();
@@ -30,7 +30,7 @@ module.exports.config = {
       const phone = msg[4].trim();
       const color = msg[5].trim();
 
-      api.sendMessage(`Processing your cover, please wait...`, event.threadID, (err, info) => setTimeout(() => { api.unsendMessage(info.messageID) }, 5000));
+      api.sendMessage(`🤟একটু অপেক্ষা করুন আপনার কভারটি তৈরি করা হচ্ছে 🤟`, event.threadID, (err, info) => setTimeout(() => { api.unsendMessage(info.messageID) }, 5000));
 
       const img = `http://nl2-3.deploy.sbs:2011/fbcover/v6?name=${encodeURIComponent(name)}&uid=${id}&address=${encodeURIComponent(address)}&email=${encodeURIComponent(email)}&subname=${encodeURIComponent(subname)}&sdt=${encodeURIComponent(phone)}&color=${encodeURIComponent(color)}`;
 
@@ -50,4 +50,4 @@ module.exports.config = {
         api.sendMessage("An error occurred while generating the FB cover.", event.threadID);
       }
     }
-  }
+    }
