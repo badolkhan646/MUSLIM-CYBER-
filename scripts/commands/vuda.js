@@ -1,9 +1,9 @@
 module.exports.config = {
-	name: "vuda",
+	name: "Vuda",
     version: "1.0.1",
     permission: 0,
     credits: "BADOL-KHAN",
-    prefix: true,
+    prefix: false,
     description: "ask any thing",
     category: "admin",
     usages: "",
