@@ -1,23 +1,19 @@
 module.exports.config = {
-	name: "Vuda",
-    version: "1.0.1",
-    permission: 0,
-    credits: "BADOL-KHAN",
-    prefix: false,
-    description: "ask any thing",
-    category: "admin",
-    usages: "",
-    cooldowns: 5,
-    dependencies: {
-        "openai": ""
-    }
+	name: "vuda",
+	version: "1.0.0",
+	permission: 0,
+	credits: "BADOL-KHAN",
+	prefix: false,
+	description: "hot pic.",
+	category: "without prefix",
+	cooldowns: 5
 };
 
 module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currencies}) => {
 const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
-   var hi = ["😬 ভুদা দেখো ভালো কথা 😘\n🖐️হা ভুদাই কেউ চুম্মু দিবানা ধন্যবাদ 🤦‍♂️"];
+   var hi = ["😬 ভুদা দেখো ভালো কথা 😘\n💋 ভুদাই কেউ চুম্মু দিবানা ধন্যবাদ 🤦‍♂️"];
   var know = hi[Math.floor(Math.random() * hi.length)];
   var link = [
 "https://drive.google.com/uc?id=1tKP6laavGRjyBYyDFQGSpTUr4-svSGC5",
