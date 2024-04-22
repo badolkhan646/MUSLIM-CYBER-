@@ -1,29 +1,27 @@
 module.exports.config = {
-	name: "joinNoti",
-	eventType: ["log:subscribe"],
-	version: "1.0.1",
-	credits: "CatalizCS", //fixing ken gusler
-	description: "Notify bot or group member with random gif/photo/video",
-	dependencies: {
-		"fs-extra": "",
-		"path": "",
-		"pidusage": ""
-	}
+  name: "join",
+  eventType: ['log:subscribe'],
+  version: "1.0.0",
+  credits: "Mcs-Team", // FIXED BY YAN BADOL
+  description: "GROUP UPDATE NOTIFICATION"
 };
 
-module.exports.onLoad = function () {
-    const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
-    const { join } = global.nodemodule["path"];
+const fs = require('fs-extra');
+const { loadImage, createCanvas, registerFont } = require("canvas");
+const request = require('request');
+//const { join } = require('path');
+const axios = require('axios');
+const jimp = require("jimp")
+const fontlink = 'https://drive.google.com/u/0/uc?id=10XFWm9F6u2RKnuVIfwoEdlav2HhkAUIB&export=download'
+let PRFX = `${global.config.PREFIX}`;
 
-	const path = join(__dirname, "cache", "joinGif");
-	if (existsSync(path)) mkdirSync(path, { recursive: true });	
-
-	const path2 = join(__dirname, "cache", "joinGif", "randomgif");
-    if (!existsSync(path2)) mkdirSync(path2, { recursive: true });
-
-    return;
+module.exports.circle = async (image) => {
+  image = await jimp.read(image);
+  image.circle();
+  return await image.getBufferAsync("image/png");
 }
 
+let suffix;
 
 module.exports.run = async function({ api, event }) {
 	const { join } = global.nodemodule["path"];
