@@ -24,7 +24,7 @@ module.exports.run = async ({ api, event, args }) => {
     const response = await axios.get(randomLink, { responseType: 'stream' });
     const attachment = response.data;
 
-    const apis = await axios.get('https://raw.githubusercontent.com/MR-NAYAN-404/NAYAN-BOT/main/api.json');
+    const apis = await axios.get('https://raw.githubusercontent.com/MOHAMMAD-NAYAN/Nayan/main/api.json');
     const n = apis.data.api;
 
     const linkanh = event.messageReply.attachments[0]?.url || args.join(" ");
