@@ -27,8 +27,8 @@ module.exports.run = async function ({ event, api }) {
 	const message = `╭•┄┅════❁𝙈𝘾𝙎•𝟬𝟬𝟳❁════┅┄•╮\n\n★মাইমুনার জন্মদিন প্রর্যন্ত বাকি সময় হলো★\n\n»${days} ★দিন★ \n\n${hours} ★ঘন্টা★ \n\n${minutes} ★মিনিট★ \n\n${seconds} ★সেকেন্ড★\n\n╰•┄┅════❁𝙈𝘾𝙎•𝟬𝟬𝟳❁════┅┄•╯`;
 
 	const links = [
-		"https://i.ibb.co/m8pn8f5/pexels-stanislav-kondratiev-2909099.jpg",
-		"https://i.ibb.co/8xqxTQ3/pexels-pixabay-280249.jpg"
+		"https://i.imgur.com/71AKz4Z.jpeg",
+		"https://i.imgur.com/7NFM2qH.jpeg"
 	];
 	const randomLink = links[Math.floor(Math.random() * links.length)];
 
