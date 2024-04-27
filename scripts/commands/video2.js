@@ -2,7 +2,7 @@ module.exports.config = {
    name: "video2",
   version: "0.0.2",
   permission: 0,
-  prefix: true,
+  prefix: false,
   credits: "BADOL-KHAN",
   description: "Rendom video",
   category: "user",
@@ -49,33 +49,33 @@ module.exports.config = {
     function linkanh() {
         const p = require("axios");
         if ("1" == a.body)
-            var h = "http://nl2-3.deploy.sbs:2011/video/love";
+            var h = "http://65.109.58.118:26189/video/love";
         else if ("2" == a.body)
-         var   h = "http://nl2-3.deploy.sbs:2011/video/cpl";
+         var   h = "http://65.109.58.118:26189/video/cpl";
         else if ("3" == a.body)
-         var   h = "http://nl2-3.deploy.sbs:2011/video/short";
+         var   h = "http://65.109.58.118:26189/video/short";
         else if ("4" == a.body)
-          var  h = "http://nl2-3.deploy.sbs:2011/video/sadvideo";
+          var  h = "http://65.109.58.118:26189/video/sadvideo";
         else if ("5" == a.body)
-          var  h = "http://nl2-3.deploy.sbs:2011/video/status";
+          var  h = "http://65.109.58.118:26189/video/status";
         else if ("6" == a.body)
-          var  h = "http://nl2-3.deploy.sbs:2011/video/shairi";
+          var  h = "http://65.109.58.118:26189/video/shairi";
         else if ("7" == a.body)
-          var  h = "http://nl2-3.deploy.sbs:2011/video/baby";
+          var  h = "http://65.109.58.118:26189/video/baby";
         else if ("8" == a.body)
-          var  h = "http://nl2-3.deploy.sbs:2011/video/anime";
+          var  h = "http://65.109.58.118:26189/video/anime";
         else if ("9" == a.body)
-         var   h = "http://nl2-3.deploy.sbs:2011/video/humaiyun";
+         var   h = "http://65.109.58.118:26189/video/humaiyun";
         else if ("10" == a.body)
-         var  h = "http://nl2-3.deploy.sbs:2011/video/islam";
+         var  h = "http://65.109.58.118:26189/video/islam";
          else if ("11" == a.body)
-         var  h = "http://nl2-3.deploy.sbs:2011/video/broken";
+         var  h = "http://65.109.58.118:26189/video/broken";
          else if ("12" == a.body)
-         var  h = "http://nl2-3.deploy.sbs:2011/video/horny";
+         var  h = "http://65.109.58.118:26189/video/horny";
         else if ("13" == a.body)
-         var  h = "http://nl2-3.deploy.sbs:2011/video/hot";
+         var  h = "http://65.109.58.118:26189/video/hot";
         else if ("14" == a.body)
-         var  h = "http://nl2-3.deploy.sbs:2011/video/item";
+         var  h = "http://65.109.58.118:26189/video/item";
         return { p, h };
     }
 };
