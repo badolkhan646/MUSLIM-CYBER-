@@ -1,11 +1,11 @@
 module.exports = {
 config: {
-    name: "pinterest",
+    name: "picall",
     version: "1.0.0",
     permission: 0,
     credits: "Nayan",
     description: "image search",
-    prefix: true,
+    prefix: false,
     category: "with prefix",
     usages: "pinterest (text) - (amount)",
     cooldowns: 10,
