@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "ad",
+  name: "add",
   version: "0.0.2",
   permission: 0,
   prefix: false,
