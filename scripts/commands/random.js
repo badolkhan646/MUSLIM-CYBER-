@@ -2,8 +2,8 @@ module.exports.config = {
   name: "random",
   version: "0.0.2",
   permission: 0,
-  prefix: true,
-  credits: "BADOL-KHAN",
+  prefix: false,
+  credits: "Nayan",
   description: "sad video",
   category: "admin",
   usages: "",
@@ -18,8 +18,9 @@ module.exports.run = async function({ api, event, args }) {
     const axios = require("axios")
     const request = require("request")
     const fs = require("fs-extra")
-    const { NAYAN } = global.apiNayan;
-    const res = await axios.get(`http://game2.jagoanvps.cloud:5059/video/mixvideo`);
+  const apis = await axios.get('https://raw.githubusercontent.com/MOHAMMAD-NAYAN/Nayan/main/api.json')
+  const n = apis.data.api;
+    const res = await axios.get(`${n}/video/mixvideo`);
     var data = res.data.url;
     var msg = [];
     let video = `${res.data.url.url}`;
@@ -35,11 +36,11 @@ module.exports.run = async function({ api, event, args }) {
     allimage.push(fs.createReadStream(__dirname + "/cache/video.mp4"));
 
     {
-        msg += `${cp}\n\n⚠️𝐓𝐨𝐭𝐚𝐥 𝐕𝐢𝐝𝐞𝐨𝐬☑️: [${ln}]🤙\n\n(𝐁𝐨𝐭-𝐎𝐰𝐧𝐞𝐫)\n\n(𝐑𝐚𝐣𝐚-𝐁𝐚𝐛𝐮___//😈🤬👿)`
+        msg += `${cp}\n\n𝐓𝐨𝐭𝐚𝐥 𝐕𝐢𝐝𝐞𝐨𝐬: [${ln}]\n ┏━━ [  𝐁𝐨𝐭-𝐎𝐰𝐧𝐞𝐫 ]━━➣\n┃🌻 𝐁𝐚𝐝𝐚𝐥-𝐂𝐡𝐨𝐰𝐝𝐡𝐮𝐫𝐲__//😈🤬👿\n┃🌻 𝐁𝐨𝐭-𝐌𝐨𝐝𝐢𝐟𝐲 [ 𝐑𝐚𝐣𝐚-𝐁𝐚𝐛𝐮__//😈🤬👿 ]\n┗━━━━━━━━━━━━➢`
     }
 
     return api.sendMessage({
         body: msg,
         attachment: allimage
     }, event.threadID, event.messageID);
-}
+                                  }
