@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "logo",
   version: "2.0.0",
-  permission: 2,
+  permission: 0,
   credits: "BADOL-KHAN",
   description: "",
   prefix: false,
