@@ -1,43 +1,41 @@
-const axios = require("axios");
-
+const axios = require('axios');
+const jimp = require("jimp");
+const fs = require("fs");
 module.exports.config = {
-  name: "gemini",
-  version: "2.0.0",
+  name: "gameni",
+  version: "1.0.2",
   permission: 0,
   credits: "BADOL-KHAN",
-  description: "gemini ai", // Fixed typo here
+  description: "beginner's guide",
   prefix: true,
-  category: "google",
-  usages: "{pn} message | photo reply",
+  category: "guide",
+  usages: "[Shows Commands]",
   cooldowns: 5,
+  envConfig: {
+    autoUnsend: true,
+    delayUnsend: 60
+  }
 };
 
-module.exports.run = async function ({ api, args, event }) {
-  const prompt = args.join(' ');
-
-  //---- Image Reply -----//
-  if (event.type === "message_reply") {
-    var t = event.messageReply.attachments[0].url;
-    try {
-      const response = await axios.get(`https://noobs-api.onrender.com/dipto/gemini?prmpt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
-      const data2 = response.data.dipto;
-      api.sendMessage(data2, event.threadID, event.messageID);
-    } catch (error) {
-      console.error('Error:', error.message);
-      api.sendMessage(error, event.threadID, event.messageID);
+module.exports.run = async function ({ api, event, args }) {
+  const axios = require("axios");
+  let uid = event.senderID,
+    url;
+  if (event.type == "message_reply") {
+    if (event.messageReply.attachments[0]?.type == "photo") {
+      url = encodeURIComponent(event.messageReply.attachments[0].url);
+      api.sendTypingIndicator(event.threadID);
+      try {
+        const response = (await axios.get(`https://deku-rest-api.replit.app/gemini?prompt=describe%20this%20photo&url=${url}&uid=${uid}`)).data;
+        return api.sendMessage(response.gemini, event.threadID);
+      } catch (error) {
+        console.error(error);
+        return api.sendMessage('❌ | An error occurred. You can try typing your query again or resending it. There might be an issue with the server that\'s causing the problem, and it might resolve on retrying.', event.threadID);
+      }
+    } else {
+      return api.sendMessage('Please reply to an image.', event.threadID);
     }
-  }
-  //---------- Message Reply ---------//
-  else if (!prompt) {
-    return api.sendMessage('Please provide a prompt or message reply', event.threadID, event.messageID);
   } else {
-    try {
-      const respons = await axios.get(`https://noobs-api.onrender.com/dipto/gemini?prmpt=${encodeURIComponent(prompt)}`)
-      const message = respons.data.dipto;
-      api.sendMessage(message, event.threadID, event.messageID);
-    } catch (error) {
-      console.error('Error calling Gemini AI:', error);
-      api.sendMessage(`Sorry, there was an error processing your request.${error}`, event.threadID, event.messageID);
-    }
+    return api.sendMessage(`Please enter a picture URL or reply to an image with "gemini answer this".`, event.threadID);
   }
 };
