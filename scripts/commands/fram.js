@@ -1,9 +1,9 @@
 module.exports.config = {
-    name: "frame2",
+    name: "fram",
     version: "7.3.1",
     hasPermssion: 0,
-    credits: " JAGDEEP",///don't change my Credit Coz i Edit 
-    description: "Get Pair From Mention",
+    credits: "Arun Kumar",///don't change my Credit Coz i Edit 
+    description: "Get frame from Mention",
     commandCategory: "img",
     usages: "[@mention]",
     cooldowns: 5,
@@ -20,9 +20,9 @@ module.exports.onLoad = async() => {
     const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
     const { downloadFile } = global.utils;
     const dirMaterial = __dirname + `/cache/canvas/`;
-    const path = resolve(__dirname, 'cache/canvas', 'frame2.jpeg');
+    const path = resolve(__dirname, 'cache/canvas', 'fram.jpg');
     if (!existsSync(dirMaterial + "canvas")) mkdirSync(dirMaterial, { recursive: true });
-    if (!existsSync(path)) await downloadFile("https://i.imgur.com/a4ddL9o.jpg", path);
+    if (!existsSync(path)) await downloadFile("https://i.postimg.cc/cCGnskcX/images-1-2.jpg", path);
 }
 
 async function makeImage({ one, two }) {
@@ -32,10 +32,10 @@ async function makeImage({ one, two }) {
     const jimp = global.nodemodule["jimp"];
     const __root = path.resolve(__dirname, "cache", "canvas");
 
-    let batgiam_img = await jimp.read(__root + "/frame2.jpeg");
-    let pathImg = __root + `/batman${one}_${two}.jpeg`;
-    let avatarOne = __root + `/avt_${one}.jpeg`;
-    let avatarTwo = __root + `/avt_${two}.jpeg`;
+    let batgiam_img = await jimp.read(__root + "/fram.jpg");
+    let pathImg = __root + `/batman${one}_${two}.jpg`;
+    let avatarOne = __root + `/avt_${one}.jpg`;
+    let avatarTwo = __root + `/avt_${two}.jpg`;
     
     let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
     fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
@@ -69,6 +69,6 @@ module.exports.run = async function ({ event, api, args }) {
     if (!mention[0]) return api.sendMessage("Please mention 1 person.", threadID, messageID);
     else {
         const one = senderID, two = mention[0];
-        return makeImage({ one, two }).then(path => api.sendMessage({ body: "◦•●◉✿❤❤😋✿◉●•◦", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
+        return makeImage({ one, two }).then(path => api.sendMessage({ body: "◦•●◉✿Ye lo apka Frame Logo✿◉●•◦", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
     }
                                 }
