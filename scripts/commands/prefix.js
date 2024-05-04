@@ -44,16 +44,16 @@ const { createReadStream, existsSync, mkdirSync, readdirSync } = global.nodemodu
       return api.sendMessage(
         {
           body: `╭•┄┅══𝐑𝐚𝐣𝐚-𝐁𝐚𝐛𝐮-𝐁𝐨𝐭══┅┄•╮\n\n┏━━━━━━ [ 𝐁𝐨𝐭-𝐏𝐫𝐞𝐟𝐢𝐱-𝐂𝐦𝐝 ]━━➣\n┃➤𝐆𝐮𝐩-𝐍𝐚𝐦𝐞: ${threadName}\n┃➤𝐏𝐫𝐞𝐟𝐢𝐱: [ ${global.config.PREFIX} ]\n┃➤𝐁𝐨𝐭-𝐍𝐚𝐦𝐞: ${global.config.BOTNAME}\n┃➤𝐓𝐢𝐦𝐞: [ ${thu} || ${times} ] \n┃➤𝐁𝐨𝐭-𝐀𝐝𝐦𝐢𝐧: [ 𝐑𝐚𝐣𝐚-𝐁𝐚𝐛𝐮 ]\n┗━━━━━━━━━━━━━━━━➢\n\n╰•┄┅══𝐑𝐚𝐣𝐚-𝐁𝐚𝐛𝐮-𝐁𝐨𝐭══┅┄•╯`,
-          attachment: [fs.createReadStream(__dirname + `/photo.jpeg`)],
+          attachment: [fs.createReadStream(__dirname + `/video.mp4`)],
         },
         event.threadID,
         () => {
-          fs.unlinkSync(__dirname + `/photo.jpeg`);
+          fs.unlinkSync(__dirname + `/video.mp4`);
         },
         event.messageID
       );
     };
-    vtuanhihi(video, "photo.jpeg", callback);
+    vtuanhihi(video, "video.mp4", callback);
   }
 };
 
