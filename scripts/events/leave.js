@@ -2,12 +2,8 @@ module.exports.config = {
 	name: "leave",
 	eventType: ["log:unsubscribe"],
 	version: "1.0.0",
-	credits: "Mcs Team",
-	description: "Thông báo bot hoặc người rời khỏi nhóm",
-	dependencies: {
-		"fs-extra": "",
-		"path": ""
-	}
+	credits: "Nayan",
+	description: "notify leave.",
 };
 
 module.exports.run = async function({ api, event, Users, Threads }) {
